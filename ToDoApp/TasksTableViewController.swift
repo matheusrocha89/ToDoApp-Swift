@@ -10,6 +10,8 @@ import UIKit
 
 class TasksTableViewController: UITableViewController {
   
+  let tableCellIdentifier = "TaskCell"
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -29,27 +31,24 @@ class TasksTableViewController: UITableViewController {
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
-    return 0
+    return 1
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return 0
+    return 5
   }
   
   @IBAction func unwindToList(segue: UIStoryboardSegue) {
-    
+  
   }
   
-  /*
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
   let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
   
-  // Configure the cell...
-  
   return cell
   }
-  */
   
   /*
   // Override to support conditional editing of the table view.
