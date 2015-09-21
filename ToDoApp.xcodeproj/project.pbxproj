@@ -15,6 +15,8 @@
 		2F4477FB1BA76B2300980E18 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F4477F91BA76B2300980E18 /* ToDoApp.xcdatamodeld */; };
 		2F4477FD1BA76B2300980E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F4477FC1BA76B2300980E18 /* Assets.xcassets */; };
 		2F4478001BA76B2300980E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4477FE1BA76B2300980E18 /* LaunchScreen.storyboard */; };
+		2FAFDAEB1BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFDAE91BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		2FAFDAEC1BB055FF00C7AAD7 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFDAEA1BB055FF00C7AAD7 /* Tasks.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		2F4477FC1BA76B2300980E18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F4477FF1BA76B2300980E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F4478011BA76B2300980E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FAFDAE91BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2FAFDAEA1BB055FF00C7AAD7 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 		2FAFDAE81BB055C900C7AAD7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2FAFDAE91BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift */,
+				2FAFDAEA1BB055FF00C7AAD7 /* Tasks.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -161,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAFDAEC1BB055FF00C7AAD7 /* Tasks.swift in Sources */,
 				2F4477F51BA76B2300980E18 /* ViewController.swift in Sources */,
 				2F4477FB1BA76B2300980E18 /* ToDoApp.xcdatamodeld in Sources */,
+				2FAFDAEB1BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift in Sources */,
 				2F3B33781BA8FF72000F13C2 /* TasksTableViewController.swift in Sources */,
 				2F4477F31BA76B2300980E18 /* AppDelegate.swift in Sources */,
 				2F3B337A1BA8FF89000F13C2 /* AddTaskViewController.swift in Sources */,
