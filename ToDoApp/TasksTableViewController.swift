@@ -12,6 +12,7 @@ import CoreData
 class TasksTableViewController: UITableViewController {
   
   let tableCellIdentifier = "TaskCell"
+  var tasks = [Tasks]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,7 +47,7 @@ class TasksTableViewController: UITableViewController {
   
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath)
+  let cell = tableView.dequeueReusableCellWithIdentifier(tableCellIdentifier, forIndexPath: indexPath)
   
   return cell
   }
