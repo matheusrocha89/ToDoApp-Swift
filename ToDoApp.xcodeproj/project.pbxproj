@@ -60,6 +60,7 @@
 		2F4477F11BA76B2300980E18 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				2FAFDAE81BB055C900C7AAD7 /* Models */,
 				2F4478071BA86EC800980E18 /* Controllers */,
 				2F4477F21BA76B2300980E18 /* AppDelegate.swift */,
 				2F4477F61BA76B2300980E18 /* Main.storyboard */,
@@ -79,6 +80,13 @@
 				2F3B33791BA8FF89000F13C2 /* AddTaskViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2FAFDAE81BB055C900C7AAD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
