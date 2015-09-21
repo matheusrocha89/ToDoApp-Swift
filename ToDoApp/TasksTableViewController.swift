@@ -45,7 +45,7 @@ class TasksTableViewController: UITableViewController {
   
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+  let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath)
   
   return cell
   }
