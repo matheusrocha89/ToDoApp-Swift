@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class TasksTableViewController: UITableViewController {
   
   let tableCellIdentifier = "TaskCell"
+  var tasks = [Tasks]()
+  let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+  let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,18 +40,56 @@ class TasksTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return 5
+    return tasks.count
   }
   
   @IBAction func unwindToList(segue: UIStoryboardSegue) {
-  
+    let ctrl:AddTaskViewController = segue.sourceViewController as! AddTaskViewController
+    if (ctrl.task != nil) {
+      self.tasks.append(ctrl.task)
+      self.tableView.reloadData()
+    }
   }
   
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier(tableCellIdentifier, forIndexPath: indexPath)
+    cell.textLabel!.text = self.tasks[indexPath.row].title
+    
+    if (self.tasks[indexPath.row].completed != 0) {
+      cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    } else {
+      cell.accessoryType = UITableViewCellAccessoryType.None
+    }
+    
+    return cell
+  }
   
-  return cell
+  override func viewWillAppear(animated: Bool) {
+    let fetchRequest = NSFetchRequest(entityName: "Tasks")
+    do {
+      let tasksRequested = try self.managedObjectContext.executeFetchRequest(fetchRequest) as? [Tasks]
+      if tasksRequested != nil {
+        self.tasks = tasksRequested!
+      }
+      
+    } catch let fetchError {
+      NSLog("Unresolved error \(fetchError)")
+    }
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    let selectedTask = self.tasks[indexPath.row]
+    if (selectedTask.completed == 1) {
+      selectedTask.completed = 0
+    } else {
+      selectedTask.completed = 1
+    }
+
+    self.saveContext()
+    
+    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
   }
   
   /*
@@ -94,5 +136,4 @@ class TasksTableViewController: UITableViewController {
   // Pass the selected object to the new view controller.
   }
   */
-  
 }
