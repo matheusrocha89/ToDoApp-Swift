@@ -53,7 +53,17 @@ class TasksTableViewController: UITableViewController {
   
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier(tableCellIdentifier, forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier(tableCellIdentifier, forIndexPath: indexPath)
+    cell.textLabel!.text = self.tasks[indexPath.row].title
+    
+    if (self.tasks[indexPath.row].completed != 0) {
+      cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    } else {
+      cell.accessoryType = UITableViewCellAccessoryType.None
+    }
+    
+    return cell
+  }
   
   return cell
   }
