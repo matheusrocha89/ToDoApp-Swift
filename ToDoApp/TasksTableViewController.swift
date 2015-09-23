@@ -65,7 +65,18 @@ class TasksTableViewController: UITableViewController {
     return cell
   }
   
-  return cell
+  override func viewWillAppear(animated: Bool) {
+    let fetchRequest = NSFetchRequest(entityName: "Tasks")
+    do {
+      let tasksRequested = try self.managedObjectContext.executeFetchRequest(fetchRequest) as? [Tasks]
+      if tasksRequested != nil {
+        self.tasks = tasksRequested!
+      }
+      
+    } catch let fetchError {
+      NSLog("Unresolved error \(fetchError)")
+    }
+  }
   }
   
   /*
