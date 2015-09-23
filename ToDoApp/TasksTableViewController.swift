@@ -44,7 +44,11 @@ class TasksTableViewController: UITableViewController {
   }
   
   @IBAction func unwindToList(segue: UIStoryboardSegue) {
-  
+    let ctrl:AddTaskViewController = segue.sourceViewController as! AddTaskViewController
+    if (ctrl.task != nil) {
+      self.tasks.append(ctrl.task)
+      self.tableView.reloadData()
+    }
   }
   
   
