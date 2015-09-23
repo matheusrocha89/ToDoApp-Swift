@@ -77,6 +77,19 @@ class TasksTableViewController: UITableViewController {
       NSLog("Unresolved error \(fetchError)")
     }
   }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    let selectedTask = self.tasks[indexPath.row]
+    if (selectedTask.completed == 1) {
+      selectedTask.completed = 0
+    } else {
+      selectedTask.completed = 1
+    }
+
+    self.saveContext()
+    
+    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
   }
   
   /*
@@ -123,5 +136,4 @@ class TasksTableViewController: UITableViewController {
   // Pass the selected object to the new view controller.
   }
   */
-  
 }
