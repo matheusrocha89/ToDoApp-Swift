@@ -13,6 +13,8 @@ class TasksTableViewController: UITableViewController {
   
   let tableCellIdentifier = "TaskCell"
   var tasks = [Tasks]()
+  let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+  let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
   
   override func viewDidLoad() {
     super.viewDidLoad()
