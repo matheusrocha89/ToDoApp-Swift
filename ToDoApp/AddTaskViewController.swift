@@ -10,6 +10,14 @@ import UIKit
 import CoreData
 
 class AddTaskViewController: UIViewController {
+  var task:Tasks!
+  
+  @IBOutlet weak var saveButton: UIBarButtonItem!
+  @IBOutlet weak var taskTitle: UITextField!
+  @IBOutlet weak var cancelButton: UIBarButtonItem!
+  
+  let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+  let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
   
   override func viewDidLoad() {
     super.viewDidLoad()
