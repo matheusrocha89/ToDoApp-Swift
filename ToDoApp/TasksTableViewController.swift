@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class TasksTableViewController: UITableViewController {
   
@@ -58,6 +59,7 @@ class TasksTableViewController: UITableViewController {
     cell.textLabel!.text = self.tasks[indexPath.row].title
     
     if (self.tasks[indexPath.row].completed != 0) {
+      cell.textLabel!.textColor = UIColor.flatGrayColor()
       cell.accessoryType = UITableViewCellAccessoryType.Checkmark
     } else {
       cell.accessoryType = UITableViewCellAccessoryType.None
