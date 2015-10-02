@@ -12,6 +12,8 @@ import CoreData
 class AddTaskViewController: UIViewController {
   var task:Tasks!
   
+  @IBOutlet weak var taskCompleted: UISwitch!
+  @IBOutlet weak var taskComment: UITextView!
   @IBOutlet weak var saveButton: UIBarButtonItem!
   @IBOutlet weak var taskTitle: UITextField!
   @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -21,6 +23,9 @@ class AddTaskViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.taskComment.layer.borderColor = UIColor.lightGrayColor().CGColor
+    self.taskComment.layer.borderWidth = 0.4
+    self.taskComment.layer.cornerRadius = 8.0
     // Do any additional setup after loading the view.
   }
   
@@ -32,7 +37,8 @@ class AddTaskViewController: UIViewController {
   func saveTask() -> Tasks {
     let task = NSEntityDescription.insertNewObjectForEntityForName("Tasks", inManagedObjectContext: self.managedObjectContext) as! Tasks
     task.title = self.taskTitle.text
-    task.completed = 0
+    task.comment = self.taskComment.text
+    task.completed = self.taskCompleted.on
     self.saveContext()
     return task
   }

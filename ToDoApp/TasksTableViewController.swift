@@ -57,12 +57,15 @@ class TasksTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(tableCellIdentifier, forIndexPath: indexPath)
     cell.textLabel!.text = self.tasks[indexPath.row].title
+    cell.detailTextLabel!.text = self.tasks[indexPath.row].comment
+    cell.accessoryType = .DisclosureIndicator
     
     if (self.tasks[indexPath.row].completed != 0) {
       cell.textLabel!.textColor = UIColor.flatGrayColor()
-      cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+      cell.detailTextLabel!.textColor = UIColor.flatGrayColor()
     } else {
-      cell.accessoryType = UITableViewCellAccessoryType.None
+      cell.textLabel!.textColor = UIColor.blackColor()
+      cell.detailTextLabel!.textColor = UIColor.blackColor()
     }
     
     return cell
