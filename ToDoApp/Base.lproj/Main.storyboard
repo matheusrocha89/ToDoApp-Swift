@@ -161,6 +161,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="sro-ao-rmW" kind="show" identifier="editTask" id="0MB-Vm-uNM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -172,7 +175,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ga9-y7-gtJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Tl2-m9-Qih" kind="presentation" modalTransitionStyle="crossDissolve" id="ihZ-tw-jKb"/>
+                                <segue destination="Tl2-m9-Qih" kind="presentation" identifier="addTask" id="ihZ-tw-jKb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -203,7 +206,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eba-8m-fq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="337"/>
+            <point key="canvasLocation" x="2724" y="705"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ad4-CD-C15">
@@ -230,4 +233,7 @@
             <point key="canvasLocation" x="1169" y="314"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0MB-Vm-uNM"/>
+    </inferredMetricsTieBreakers>
 </document>
