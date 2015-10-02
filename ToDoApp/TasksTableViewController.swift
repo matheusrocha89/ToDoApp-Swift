@@ -8,13 +8,16 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class TasksTableViewController: UITableViewController {
   
-  let tableCellIdentifier = "TaskCell"
+  private let tableCellIdentifier = "TaskCell"
   var tasks = [Tasks]()
-  let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-  let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
+  private let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+  private let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
+  private let editTaskSegue = "editTask"
+  private let addTaskSegue = "addTask"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,6 +52,10 @@ class TasksTableViewController: UITableViewController {
     if (ctrl.task != nil) {
       self.tasks.append(ctrl.task)
       self.tableView.reloadData()
+    } else if ctrl.selectedTask != nil {
+      let selectedIndexPath = self.tableView.indexPathForSelectedRow!
+      self.tasks[selectedIndexPath.row] = ctrl.selectedTask!
+      self.tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
     }
   }
   
@@ -56,11 +63,15 @@ class TasksTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(tableCellIdentifier, forIndexPath: indexPath)
     cell.textLabel!.text = self.tasks[indexPath.row].title
+    cell.detailTextLabel!.text = self.tasks[indexPath.row].comment
+    cell.accessoryType = .DisclosureIndicator
     
     if (self.tasks[indexPath.row].completed != 0) {
-      cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+      cell.textLabel!.textColor = UIColor.flatGrayColor()
+      cell.detailTextLabel!.textColor = UIColor.flatGrayColor()
     } else {
-      cell.accessoryType = UITableViewCellAccessoryType.None
+      cell.textLabel!.textColor = UIColor.blackColor()
+      cell.detailTextLabel!.textColor = UIColor.blackColor()
     }
     
     return cell
@@ -79,27 +90,17 @@ class TasksTableViewController: UITableViewController {
     }
   }
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
-    let selectedTask = self.tasks[indexPath.row]
-    if (selectedTask.completed == 1) {
-      selectedTask.completed = 0
-    } else {
-      selectedTask.completed = 1
-    }
-
-    self.saveContext()
-    
-    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-  }
-  
   /*
-  // Override to support conditional editing of the table view.
-  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-  // Return false if you do not want the specified item to be editable.
-  return true
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
   }
   */
+
+
+  // Override to support conditional editing of the table view.
+  override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // Return false if you do not want the specified item to be editable.
+    return true
+  }
   
   // Override to support editing the table view.
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -129,13 +130,26 @@ class TasksTableViewController: UITableViewController {
   }
   */
   
-  /*
+  private func prepareForSegueEditTask(segue: UIStoryboardSegue, sender: AnyObject?) {
+    let addTaskViewController = segue.destinationViewController as! AddTaskViewController
+    let cell = sender as! UITableViewCell
+    addTaskViewController.selectedTask = self.tasks[self.tableView.indexPathForCell(cell)!.row]
+  }
+  
+  private func prepareForSegueAddTask() {
+    
+  }
+  
   // MARK: - Navigation
   
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  // Get the new view controller using segue.destinationViewController.
-  // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    if segue.identifier == self.editTaskSegue {
+      self.prepareForSegueEditTask(segue, sender:sender)
+    } else if segue.identifier == self.addTaskSegue {
+      self.prepareForSegueAddTask()
+    }
   }
-  */
 }
