@@ -10,11 +10,12 @@
 		2F3B33781BA8FF72000F13C2 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B33771BA8FF72000F13C2 /* TasksTableViewController.swift */; };
 		2F3B337A1BA8FF89000F13C2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3B33791BA8FF89000F13C2 /* AddTaskViewController.swift */; };
 		2F4477F31BA76B2300980E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4477F21BA76B2300980E18 /* AppDelegate.swift */; };
-		2F4477F51BA76B2300980E18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4477F41BA76B2300980E18 /* ViewController.swift */; };
 		2F4477F81BA76B2300980E18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4477F61BA76B2300980E18 /* Main.storyboard */; };
 		2F4477FB1BA76B2300980E18 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F4477F91BA76B2300980E18 /* ToDoApp.xcdatamodeld */; };
 		2F4477FD1BA76B2300980E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F4477FC1BA76B2300980E18 /* Assets.xcassets */; };
 		2F4478001BA76B2300980E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F4477FE1BA76B2300980E18 /* LaunchScreen.storyboard */; };
+		2F8257741BC2BC2E0062FDE4 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8257731BC2BC2E0062FDE4 /* ShowDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2F8257761BC313D20062FDE4 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8257751BC313D20062FDE4 /* EditTaskViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2FAFDAEB1BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFDAE91BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		2FAFDAEC1BB055FF00C7AAD7 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFDAEA1BB055FF00C7AAD7 /* Tasks.swift */; settings = {ASSET_TAGS = (); }; };
 		62B12F59772C137579EDDE66 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D297879366435AE43FDBF6 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -25,12 +26,13 @@
 		2F3B33791BA8FF89000F13C2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		2F4477EF1BA76B2300980E18 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F4477F21BA76B2300980E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F4477F41BA76B2300980E18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2F4477F71BA76B2300980E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F4477FA1BA76B2300980E18 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
 		2F4477FC1BA76B2300980E18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F4477FF1BA76B2300980E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F4478011BA76B2300980E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F8257731BC2BC2E0062FDE4 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
+		2F8257751BC313D20062FDE4 /* EditTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		2FAFDAE91BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2FAFDAEA1BB055FF00C7AAD7 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		95D297879366435AE43FDBF6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,9 +97,10 @@
 		2F4478071BA86EC800980E18 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2F4477F41BA76B2300980E18 /* ViewController.swift */,
 				2F3B33771BA8FF72000F13C2 /* TasksTableViewController.swift */,
 				2F3B33791BA8FF89000F13C2 /* AddTaskViewController.swift */,
+				2F8257731BC2BC2E0062FDE4 /* ShowDetailsViewController.swift */,
+				2F8257751BC313D20062FDE4 /* EditTaskViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -243,12 +246,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FAFDAEC1BB055FF00C7AAD7 /* Tasks.swift in Sources */,
-				2F4477F51BA76B2300980E18 /* ViewController.swift in Sources */,
 				2F4477FB1BA76B2300980E18 /* ToDoApp.xcdatamodeld in Sources */,
 				2FAFDAEB1BB055FF00C7AAD7 /* Tasks+CoreDataProperties.swift in Sources */,
 				2F3B33781BA8FF72000F13C2 /* TasksTableViewController.swift in Sources */,
 				2F4477F31BA76B2300980E18 /* AppDelegate.swift in Sources */,
+				2F8257741BC2BC2E0062FDE4 /* ShowDetailsViewController.swift in Sources */,
 				2F3B337A1BA8FF89000F13C2 /* AddTaskViewController.swift in Sources */,
+				2F8257761BC313D20062FDE4 /* EditTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
