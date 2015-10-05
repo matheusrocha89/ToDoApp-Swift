@@ -18,6 +18,7 @@ class TasksTableViewController: UITableViewController {
   private let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
   private let editTaskSegue = "editTask"
   private let addTaskSegue = "addTask"
+  private let showDetailsTaskSegue = "showDetailsTask"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,14 +49,17 @@ class TasksTableViewController: UITableViewController {
   }
   
   @IBAction func unwindToList(segue: UIStoryboardSegue) {
-    let ctrl:AddTaskViewController = segue.sourceViewController as! AddTaskViewController
-    if (ctrl.task != nil) {
-      self.tasks.append(ctrl.task)
-      self.tableView.reloadData()
-    } else if ctrl.selectedTask != nil {
-      let selectedIndexPath = self.tableView.indexPathForSelectedRow!
-      self.tasks[selectedIndexPath.row] = ctrl.selectedTask!
-      self.tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+    if let ctrl = segue.sourceViewController as? AddTaskViewController {
+      if ctrl.task != nil {
+        self.tasks.append(ctrl.task)
+        self.tableView.reloadData()
+      }
+    } else if let ctrl = segue.sourceViewController as? EditTaskViewController {
+      if ctrl.taskToEdit != nil {
+        let selectedIndexPath = self.tableView.indexPathForSelectedRow!
+        self.tasks[selectedIndexPath.row] = ctrl.taskToEdit!
+        self.tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+      }
     }
   }
   
@@ -130,14 +134,16 @@ class TasksTableViewController: UITableViewController {
   }
   */
   
-  private func prepareForSegueEditTask(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let addTaskViewController = segue.destinationViewController as! AddTaskViewController
-    let cell = sender as! UITableViewCell
-    addTaskViewController.selectedTask = self.tasks[self.tableView.indexPathForCell(cell)!.row]
-  }
-  
   private func prepareForSegueAddTask() {
     
+  }
+  
+  private func prepareForSegueShowDetailsTask(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    let viewCtrl = segue.destinationViewController as! ShowDetailsViewController
+    let cell = sender as! UITableViewCell
+    
+    viewCtrl.selectedTask = self.tasks[self.tableView.indexPathForCell(cell)!.row]
   }
   
   // MARK: - Navigation
@@ -146,10 +152,12 @@ class TasksTableViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
-    if segue.identifier == self.editTaskSegue {
-      self.prepareForSegueEditTask(segue, sender:sender)
-    } else if segue.identifier == self.addTaskSegue {
+    
+    // TODO - Replace if for switch
+    if segue.identifier == self.addTaskSegue {
       self.prepareForSegueAddTask()
+    } else if segue.identifier == self.showDetailsTaskSegue {
+      self.prepareForSegueShowDetailsTask(segue, sender:sender)
     }
   }
 }
