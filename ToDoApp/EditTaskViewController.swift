@@ -13,12 +13,24 @@ class EditTaskViewController: UIViewController {
   @IBOutlet weak var taskTitle: UITextField!
   @IBOutlet weak var taskComment: UITextView!
   @IBOutlet weak var taskCompleted: UISwitch!
+  var taskToEdit:Tasks?
+  private let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.configTaskCommentBorder()
+    
+    if self.taskToEdit != nil {
+      self.loadTaskToView()
+    }
 
     // Do any additional setup after loading the view.
+  }
+  
+  private func loadTaskToView() {
+    self.taskTitle.text = self.taskToEdit!.title
+    self.taskComment.text = self.taskToEdit!.comment
+    self.taskCompleted.on = self.taskToEdit!.completed!.boolValue
   }
   
   private func configTaskCommentBorder() {
@@ -32,15 +44,23 @@ class EditTaskViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  func editTask() {
+    self.taskToEdit!.title = self.taskTitle.text
+    self.taskToEdit!.comment = self.taskComment.text
+    self.taskToEdit!.completed = self.taskCompleted.on
+    self.saveContext()
+  }
 
-  /*
   // MARK: - Navigation
 
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      // Get the new view controller using segue.destinationViewController.
-      // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    
+    if !self.taskTitle.text!.isEmpty && self.taskToEdit != nil {
+      self.editTask()
+    }
   }
-  */
 
 }

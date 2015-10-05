@@ -162,7 +162,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="IK6-TQ-Jfd" kind="show" identifier="showDetailsTask" id="7BK-pc-Qdj"/>
+                                    <segue destination="K7G-C1-x97" kind="show" identifier="showDetailsTask" id="LlD-mg-rQT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -246,7 +246,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="r5f-gU-8jV">
                             <color key="tintColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="Gln-zV-u3e" kind="show" identifier="editTask" id="FVK-jl-SHO"/>
+                                <segue destination="dBs-nf-FOv" kind="show" identifier="editTask" id="XcB-wa-c9l"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -258,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0d9-LV-nuy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3399" y="-347"/>
+            <point key="canvasLocation" x="2691" y="-171"/>
         </scene>
         <!--Edit Task-->
         <scene sceneID="xAq-qF-WkT">
@@ -349,7 +349,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZT-Pi-qlN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qjL-av-B4e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4929" y="-347"/>
+            <point key="canvasLocation" x="3391" y="-171"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mqE-Ga-wuJ">
@@ -421,7 +421,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROy-Aw-HRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2691" y="-347"/>
+            <point key="canvasLocation" x="2691" y="-894"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uzZ-Zm-Lh8">
@@ -445,8 +445,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COg-Vi-HwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4117" y="-347"/>
+            <point key="canvasLocation" x="3391" y="-894"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nfE-Dj-Rvf"/>
+        <segue reference="XcB-wa-c9l"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
 </document>
