@@ -23,6 +23,7 @@ class TasksTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.allowsMultipleSelectionDuringEditing = false;
+    self.navigationController?.isMovingFromParentViewController()
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
@@ -69,6 +70,7 @@ class TasksTableViewController: UITableViewController {
     cell.textLabel!.text = self.tasks[indexPath.row].title
     cell.detailTextLabel!.text = self.tasks[indexPath.row].comment
     cell.accessoryType = .DisclosureIndicator
+    cell.selectionStyle = .None
     
     if (self.tasks[indexPath.row].completed != 0) {
       cell.textLabel!.textColor = UIColor.flatGrayColor()
