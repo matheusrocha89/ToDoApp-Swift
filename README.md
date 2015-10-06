@@ -8,3 +8,9 @@ This app use CocoaPod.
 
 # Dependencies:
  - Chameleon
+
+# Install dependencies:
+
+ - Install Cocoapod
+ - Inside project folder run `pod install`
+ - After the instalation always open your project with the xcodeworkspace file
