@@ -19,7 +19,6 @@ class ShowDetailsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.configTaskCommentBorder()
     
     if  self.selectedTask != nil {
       self.loadTaskToView()
@@ -31,12 +30,6 @@ class ShowDetailsViewController: UIViewController {
     self.taskTitle.text = self.selectedTask!.title
     self.taskComment.text = self.selectedTask!.comment
     self.taskCompleted.on = self.selectedTask!.completed!.boolValue
-  }
-  
-  private func configTaskCommentBorder() {
-    self.taskComment.layer.borderColor = UIColor.lightGrayColor().CGColor
-    self.taskComment.layer.borderWidth = 0.4
-    self.taskComment.layer.cornerRadius = 8.0
   }
 
   override func didReceiveMemoryWarning() {
