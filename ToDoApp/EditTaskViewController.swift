@@ -18,7 +18,7 @@ class EditTaskViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.configTaskCommentBorder()
+    self.taskComment.layer.borderColor = UIColor.lightGrayColor().CGColor
     
     if self.taskToEdit != nil {
       self.loadTaskToView()
@@ -31,12 +31,6 @@ class EditTaskViewController: UIViewController {
     self.taskTitle.text = self.taskToEdit!.title
     self.taskComment.text = self.taskToEdit!.comment
     self.taskCompleted.on = self.taskToEdit!.completed!.boolValue
-  }
-  
-  private func configTaskCommentBorder() {
-    self.taskComment.layer.borderColor = UIColor.lightGrayColor().CGColor
-    self.taskComment.layer.borderWidth = 0.4
-    self.taskComment.layer.cornerRadius = 8.0
   }
 
   override func didReceiveMemoryWarning() {

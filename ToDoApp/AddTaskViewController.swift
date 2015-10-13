@@ -22,15 +22,9 @@ class AddTaskViewController: UIViewController {
   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
   let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
   
-  private func configTaskCommentBorder() {
-    self.taskComment.layer.borderColor = UIColor.lightGrayColor().CGColor
-    self.taskComment.layer.borderWidth = 0.4
-    self.taskComment.layer.cornerRadius = 8.0
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.configTaskCommentBorder()
+    self.taskComment.layer.borderColor = UIColor.lightGrayColor().CGColor
     if self.selectedTask != nil {
       self.taskTitle.text = self.selectedTask!.title
       self.taskComment.text = self.selectedTask!.comment
